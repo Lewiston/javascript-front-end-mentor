@@ -23,7 +23,7 @@
 
         <div class="bill">
           <h3>Bill</h3>
-          <div class="form">
+          <div class="form bill-form" tabindex="0">
             <img src="images/icon-dollar.svg" alt="">
             <input type="text" id="bill" name="total-bill" placeholder="0.00" required>
           </div>
@@ -42,8 +42,11 @@
         </div>
 
         <div class="people">
-          <h3>Number of People</h3>
-          <div class="form">
+          <div class="error">
+            <h3>Number of People</h3>
+            <p class="error-msg"></p>
+          </div>
+          <div class="form people-form">
             <img src="images/icon-person.svg" alt="">
             <input type="text" id="people" name="total-people" placeholder="1" required>
           </div>

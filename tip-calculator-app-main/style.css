@@ -64,7 +64,7 @@ main {
 .bill > h3,
 .people > h3,
 .select-tip > h3 {
-  font-size: 12px;
+  font-size: 18px; /* increased font size */
   color: var(--color-neutral-grey-500);
 }
 
@@ -120,10 +120,24 @@ main {
   font-weight: var(--font-weight-bold);
 }
 
-.btn:active,
-.btn:focus {
+/* .btn:active,
+.btn:focus, */
+.active {
   background-color: var(--color-primary-green-400);
   color: var(--color-neutral-grey-900);
+}
+
+
+
+.error {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.error-msg {
+  color: red;
 }
 
 .custom {
@@ -156,11 +170,11 @@ main {
 }
 
 .tip-amount-text > h3 {
-  font-size: 12px;
+  font-size: 18px; /* increased font size */
 }
 
 .tip-amount-text > p {
-  font-size: 10px;
+  font-size: 18px; /* increased font size */
   color: var(--color-neutral-grey-200);
 }
 
@@ -181,3 +195,12 @@ main {
   background-color: var(--color-primary-green-400);
   color: var(--color-neutral-green-900);
 }
+
+.active {
+  background-color: var(--color-primary-green-400);
+  color: var(--color-neutral-grey-900);
+}
+
+.bill-form:focus-within {
+  border: 1px solid  hsl(183, 100%, 20%);
+} 

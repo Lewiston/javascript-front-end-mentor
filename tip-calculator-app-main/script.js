@@ -16,6 +16,9 @@ let tip = 0;
 
 let discounts = document.querySelectorAll(".tip");
 
+let reset = document.querySelector(".reset");
+let custom = document.querySelector(".custom");
+
 
 bill.addEventListener("change", () => {
   // document.querySelector(".bill-form").style.border = "1px solid  hsl(183, 100%, 20%)";
@@ -52,6 +55,9 @@ discounts.forEach(discount => {
       }
     })
 
+  
+      custom.classList.remove("active");
+    
     discount.classList.toggle("active");
 
     if (discount.className.includes("active")) {
@@ -64,16 +70,6 @@ discounts.forEach(discount => {
 }) 
 
 
-function computeValue() {
-  let tipAmountTotal = Math.floor((billValue * tip) / 100);
-  
-  tipTotal.textContent = `$${(tipAmountTotal).toFixed(2)}`;
-  tipPerPerson.textContent= `$${((tipAmountTotal / totalPeopleValue).toFixed(2))}`;
-  console.log(tipAmountTotal, totalPeopleValue);
-}
-// setInterval(() => {console.log("tip: " + tip);}, 1000);
-
-let custom = document.querySelector(".custom");
 
 custom.addEventListener("click", () => {
   discounts.forEach(element => {
@@ -90,16 +86,34 @@ custom.addEventListener("click", () => {
 })
 
 
-let reset = document.querySelector(".reset");
 
 reset.addEventListener("click", () => {
   billValue = 0;
   bill.value = 0;
   totalPeopleValue = 1;
-  totalPeople.value = 0;
+  totalPeople.value = 1;
   tipTotalValue = 0;
   tipPerPersonValue = 0;
   tip = 0;
+
+  discounts.forEach(element => {
+    if (element.className.includes("active")) {
+      element.classList.remove("active");
+    }
+  })
+
+    custom.classList.remove("active");
+
   computeValue();
 
 })
+
+
+function computeValue() {
+  let tipAmountTotal = ((billValue * tip) / 100);
+  
+  tipTotal.textContent = `$${(tipAmountTotal).toFixed(2)}`;
+  tipPerPerson.textContent= `$${((tipAmountTotal / totalPeopleValue).toFixed(2))}`;
+  console.log(tipAmountTotal, totalPeopleValue);
+}
+// setInterval(() => {console.log("tip: " + tip);}, 1000);
